@@ -115,7 +115,8 @@ const ParetoChart: FC<Props> = ({ clientes, periodo }) => {
                 totalAll > 0
                   ? ((cliente?.saldo_total ?? 0) / totalAll * 100).toFixed(1)
                   : '0.0'
-              return `Saldo: ${ctx.parsed.y.toFixed(2)} MDP (${pctInd}% indiv.)`
+              const y = ctx.parsed.y ?? 0
+              return `Saldo: ${y.toFixed(2)} MDP (${pctInd}% indiv.)`
             }
             if (ctx.dataset.label === '% Acumulado') {
               return `Acumulado: ${ctx.parsed.y}%`
